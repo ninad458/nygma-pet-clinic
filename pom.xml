@@ -15,7 +15,7 @@
     </parent>
     <groupId>nygma.springframework</groupId>
     <artifactId>nygma-pet-clinic</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.3-SNAPSHOT</version>
     <name>nygma-pet-clinic</name>
     <description>Pet Clinic Project</description>
 
@@ -30,6 +30,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
             <plugin>
