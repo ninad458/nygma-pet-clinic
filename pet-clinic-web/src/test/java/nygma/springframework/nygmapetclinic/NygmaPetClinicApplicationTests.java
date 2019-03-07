@@ -1,4 +1,4 @@
-package nygmapetclinic;
+package nygma.springframework.nygmapetclinic;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
