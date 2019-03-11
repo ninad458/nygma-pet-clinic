@@ -4,8 +4,6 @@ import nygma.springframework.nygmapetclinic.model.Owner;
 import nygma.springframework.nygmapetclinic.model.Vet;
 import nygma.springframework.nygmapetclinic.service.OwnerService;
 import nygma.springframework.nygmapetclinic.service.VetService;
-import nygma.springframework.nygmapetclinic.service.map.OwnerMap;
-import nygma.springframework.nygmapetclinic.service.map.VetMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +13,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerMap();
-        this.vetService = new VetMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
