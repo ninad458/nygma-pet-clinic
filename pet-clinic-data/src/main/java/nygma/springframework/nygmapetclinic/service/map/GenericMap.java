@@ -35,4 +35,8 @@ public abstract class GenericMap<T, ID> implements CrudService<T, ID> {
         map.put(id, object);
         return object;
     }
+
+    Set<ID> getKeys() {
+        return map.keySet();
+    }
 }
