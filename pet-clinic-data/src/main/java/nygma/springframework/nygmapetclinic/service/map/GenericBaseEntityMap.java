@@ -8,13 +8,13 @@ public abstract class GenericBaseEntityMap<T extends BaseEntity> extends Generic
 
     @Override
     public T save(T object) {
-        if (object != null)
+        if (object != null) {
             if (object.getId() == null) {
                 Long id = generateId();
                 object.setId(id);
                 return save(object.getId(), object);
-            }
-        throw new RuntimeException("object cannot be null");
+            } else return object;
+        } else throw new RuntimeException("object cannot be null");
     }
 
     private Long generateId() {
