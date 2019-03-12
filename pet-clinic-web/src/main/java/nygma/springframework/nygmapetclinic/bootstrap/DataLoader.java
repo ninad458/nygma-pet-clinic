@@ -1,8 +1,10 @@
 package nygma.springframework.nygmapetclinic.bootstrap;
 
 import nygma.springframework.nygmapetclinic.model.Owner;
+import nygma.springframework.nygmapetclinic.model.PetType;
 import nygma.springframework.nygmapetclinic.model.Vet;
 import nygma.springframework.nygmapetclinic.service.OwnerService;
+import nygma.springframework.nygmapetclinic.service.PetTypeService;
 import nygma.springframework.nygmapetclinic.service.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,14 +14,24 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String... args) {
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDog = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        cat.setName("Cat");
+        PetType savedCat = petTypeService.save(cat);
+
         Owner owner1 = new Owner();
         owner1.setFirstName("Podrick");
         owner1.setLastName("Slavoj");
