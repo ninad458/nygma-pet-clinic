@@ -10,4 +10,9 @@ public class IndexController {
     public String loadIndex() {
         return "index";
     }
+
+    @RequestMapping("/oups")
+    public String oops() {
+        return "notimplemented";
+    }
 }
