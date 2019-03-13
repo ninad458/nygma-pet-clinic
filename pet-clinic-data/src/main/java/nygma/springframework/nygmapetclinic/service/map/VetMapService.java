@@ -6,11 +6,11 @@ import nygma.springframework.nygmapetclinic.service.VetService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class VetMap extends GenericBaseEntityMap<Vet> implements VetService {
+public class VetMapService extends GenericBaseEntityMap<Vet> implements VetService {
 
     private final SpecialityService specialityService;
 
-    public VetMap(SpecialityService specialityService) {
+    public VetMapService(SpecialityService specialityService) {
         this.specialityService = specialityService;
     }
 

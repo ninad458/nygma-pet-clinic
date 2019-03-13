@@ -7,12 +7,12 @@ import nygma.springframework.nygmapetclinic.service.PetTypeService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OwnerMap extends GenericBaseEntityMap<Owner> implements OwnerService {
+public class OwnerMapService extends GenericBaseEntityMap<Owner> implements OwnerService {
 
     private final PetTypeService petTypeService;
     private final PetService petService;
 
-    public OwnerMap(PetTypeService petTypeService, PetService petService) {
+    public OwnerMapService(PetTypeService petTypeService, PetService petService) {
         this.petTypeService = petTypeService;
         this.petService = petService;
     }

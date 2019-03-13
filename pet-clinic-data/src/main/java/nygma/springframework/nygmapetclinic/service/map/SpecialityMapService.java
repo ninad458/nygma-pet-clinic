@@ -5,5 +5,5 @@ import nygma.springframework.nygmapetclinic.service.SpecialityService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SpecialityMap extends GenericBaseEntityMap<Speciality> implements SpecialityService {
+public class SpecialityMapService extends GenericBaseEntityMap<Speciality> implements SpecialityService {
 }
