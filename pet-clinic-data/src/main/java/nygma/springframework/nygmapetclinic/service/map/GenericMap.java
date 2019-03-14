@@ -23,12 +23,12 @@ public abstract class GenericMap<T, ID> implements CrudService<T, ID> {
 
     @Override
     public void delete(T object) {
-        map.entrySet().removeIf(entry -> entry.equals(object));
+        map.entrySet().removeIf(entry -> entry.getValue().equals(object));
     }
 
     @Override
     public void deleteById(ID id) {
-
+        map.remove(id);
     }
 
     T save(ID id, T object) {

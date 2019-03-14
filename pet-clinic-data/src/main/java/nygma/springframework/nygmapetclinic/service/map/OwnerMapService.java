@@ -40,6 +40,10 @@ public class OwnerMapService extends GenericBaseEntityMap<Owner> implements Owne
 
     @Override
     public Owner findOwnerByLastName(String lastName) {
-        return null;
+        return findAll()
+                .stream()
+                .filter(owner -> owner.getLastName().equals(lastName))
+                .findFirst()
+                .orElse(null);
     }
 }

@@ -12,8 +12,8 @@ public abstract class GenericBaseEntityMap<T extends BaseEntity> extends Generic
             if (object.getId() == null) {
                 Long id = generateId();
                 object.setId(id);
-                return save(object.getId(), object);
-            } else return object;
+            }
+            return save(object.getId(), object);
         } else throw new RuntimeException("object cannot be null");
     }
 
