@@ -1,10 +1,7 @@
 package nygma.springframework.nygmapetclinic.bootstrap;
 
 import nygma.springframework.nygmapetclinic.model.*;
-import nygma.springframework.nygmapetclinic.service.OwnerService;
-import nygma.springframework.nygmapetclinic.service.PetTypeService;
-import nygma.springframework.nygmapetclinic.service.SpecialityService;
-import nygma.springframework.nygmapetclinic.service.VetService;
+import nygma.springframework.nygmapetclinic.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +14,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                      SpecialityService specialityService) {
+                      SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -71,6 +70,13 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(smokey);
 
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(smokey);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy Kitty");
+
+        visitService.save(catVisit);
 
         System.out.println("Loading Owners");
 
