@@ -4,9 +4,11 @@ import nygma.springframework.nygmapetclinic.model.Owner;
 import nygma.springframework.nygmapetclinic.service.OwnerService;
 import nygma.springframework.nygmapetclinic.service.PetService;
 import nygma.springframework.nygmapetclinic.service.PetTypeService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerMapService extends GenericBaseEntityMap<Owner> implements OwnerService {
 
     private final PetTypeService petTypeService;

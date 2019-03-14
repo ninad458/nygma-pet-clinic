@@ -3,9 +3,11 @@ package nygma.springframework.nygmapetclinic.service.map;
 import nygma.springframework.nygmapetclinic.model.Vet;
 import nygma.springframework.nygmapetclinic.service.SpecialityService;
 import nygma.springframework.nygmapetclinic.service.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
+@Profile({"default", "map"})
 public class VetMapService extends GenericBaseEntityMap<Vet> implements VetService {
 
     private final SpecialityService specialityService;
