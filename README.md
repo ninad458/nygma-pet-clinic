@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/ninad458/nygma-pet-clinic.svg?style=svg)](https://circleci.com/gh/ninad458/nygma-pet-clinic)
+
 # NygmaPetClinic
 Pet Clinic
 
