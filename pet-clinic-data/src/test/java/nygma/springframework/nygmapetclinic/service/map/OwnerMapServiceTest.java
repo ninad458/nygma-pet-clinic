@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 class OwnerMapServiceTest {
@@ -43,6 +42,12 @@ class OwnerMapServiceTest {
     }
 
     @Test
+    void findOwnerByLastNameThatDoesntExistReturnsNull() {
+        Owner foo = ownerMapService.findOwnerByLastName("foo");
+        assertNull(foo);
+    }
+
+    @Test
     void findById() {
         Owner owner = ownerMapService.findById(id);
         assertEquals(owner.getId(), id);
@@ -61,8 +66,20 @@ class OwnerMapServiceTest {
     }
 
     @Test
+    void deleteWhenItDoesntExistDoesNothing() {
+        ownerMapService.delete(Owner.builder().id(id).build());
+        assertEquals(1, ownerMapService.findAll().size());
+    }
+
+    @Test
     void deleteById() {
         ownerMapService.deleteById(id);
         assertEquals(0, ownerMapService.findAll().size());
+    }
+
+    @Test
+    void deleteByIdWhenItDoesntExistDoesNothing() {
+        ownerMapService.deleteById(3L);
+        assertEquals(1, ownerMapService.findAll().size());
     }
 }
