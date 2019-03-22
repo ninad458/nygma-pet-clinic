@@ -7,6 +7,8 @@ import nygma.springframework.nygmapetclinic.service.PetTypeService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Profile({"default", "map"})
 public class OwnerMapService extends GenericBaseEntityMap<Owner> implements OwnerService {
@@ -45,5 +47,10 @@ public class OwnerMapService extends GenericBaseEntityMap<Owner> implements Owne
                 .filter(owner -> owner.getLastName().equals(lastName))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return null;
     }
 }
